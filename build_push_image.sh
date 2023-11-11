@@ -4,7 +4,7 @@ docker images
 # digunakan untuk melihat/menampilkan seluruh image yang terdapat di lokal
 docker tag item-app:v1 ghcr.io/kinaryo/item-app:v1
 # digunakan untuk mengubah nama image agar sesuai dengan format docker hub
-docker login ghcr.io -u kinaryo -p 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
+docker login ghcr.io -u kinaryo -p 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
 # login ke akun github 
 docker push ghcr.io/kinaryo/item-app:v1
 # mengunggah image ke docker hub
