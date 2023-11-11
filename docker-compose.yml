@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  item-db: # service untuk item database
+    image: mongo:3 # menggunkan image mongo versi 3
+    restart: always  # Container akan selalu di-restart ketika terhenti
+    volumes:
+      - app-db:/data/db  # Menggunakan volume bernama app-db dengan target /data/db di container
+
+  item-app: # service untuk aplikasi item
+    image: kinaryo/item-app:v1 # digunakan untuk mengganti username dengan nama pengguna docker hub
+    depends_on:
+      - item-db # menjalankan item-app hanya setelah item-db sudah berjalan
+    restart: always  
+    ports:
+      - "80:8080" # menjalankan maping port 80 di host port 8080 di container
+
+volumes:
+  app-db: # membuat volume bernama app-db
